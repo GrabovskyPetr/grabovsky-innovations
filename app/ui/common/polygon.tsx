@@ -1,28 +1,16 @@
-import React, { ReactNode, useRef, useMemo } from "react"
-import { motion } from "framer-motion"
-import { v4 } from "uuid"
+import React, { ReactNode } from "react"
 import clsx from "clsx"
 
 interface PolygonProps {
+    id: string
     className: string
     deviation: number
     glowColor: string
     children: ReactNode
-    isAnimated?: boolean
+    isAnimated: boolean
 }
 
-const Polygon: React.FC<PolygonProps> = React.memo(({ className, deviation, glowColor, children, isAnimated = false }) => {
-    const filterId = useRef( v4() ).current
-    
-    const glowVariants = useMemo(() => ({
-        active: {
-            stdDeviation: [ deviation, deviation * 2, deviation ],
-            transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
-        },
-        inactive: {
-            stdDeviation: deviation
-        },
-    }), [ deviation ])
+const Polygon: React.FC<PolygonProps> = React.memo(({ id, className, deviation = 0, glowColor, children, isAnimated = false }) => {
 
     return (
         <div 
@@ -35,14 +23,17 @@ const Polygon: React.FC<PolygonProps> = React.memo(({ className, deviation, glow
                 viewBox="0 0 100 88"
                 xmlns="http://www.w3.org/2000/svg"
             >
-                <filter id={ filterId } x="-50%" y="-50%" width="200%" height="200%">
-                <motion.feGaussianBlur
-                        in="SourceGraphic"
-                        stdDeviation={ deviation }
-                        animate={ isAnimated ? "active" : "inactive" }
-                        variants={ glowVariants }
-                        result="blur"
-                    />
+                <filter id={ id } x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation={ deviation } in="SourceGraphic" result="blur">
+                        {isAnimated &&
+                        <animate 
+                            attributeName="stdDeviation"
+                            values={ `${deviation}; ${deviation * 2}; ${deviation};` }
+                            dur="2s" 
+                            repeatCount="indefinite"
+                        />
+                        }
+                    </feGaussianBlur>
                     <feFlood 
                         floodColor={ glowColor }
                         result="color"
@@ -55,7 +46,7 @@ const Polygon: React.FC<PolygonProps> = React.memo(({ className, deviation, glow
                     </feMerge>
                 </filter>
                 <path
-                    filter={`url(#${ filterId })`}
+                    filter={`url(#${ id })`}
                     d="M100 43.7449L75 87.0462L25 87.0462L5.16362e-07 43.7449L25 0.443635L75 0.443634L100 43.7449Z" 
                 />
             </svg>

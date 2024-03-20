@@ -36,8 +36,9 @@ const Hamburger: React.FC = () => {
             className="w-12 h-12"
         >
             <Polygon 
+                id="hamburger"
                 className="w-full h-full fill-secondary" 
-                glowColor={isMenuOpen ? "var(--color-fifth)" : "var(--color-fourth)"}
+                glowColor={ isMenuOpen ? "var(--color-fifth)" : "var(--color-fourth)" }
                 deviation={ 10 }
                 isAnimated={ true }
             >
