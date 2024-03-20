@@ -1,7 +1,7 @@
 "use client"
 
-import "./ui/globals.css"
-import { inter } from "./ui/fonts"
+import "./ui/common/globals.css"
+import { inter } from "./ui/common/fonts"
 import clsx from "clsx"
 import { GlobalContextProvider } from "./lib/globalContext"
 import Header from "./ui/header"
