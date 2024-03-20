@@ -4,7 +4,7 @@ import "./ui/common/globals.css"
 import { inter } from "./ui/common/fonts"
 import clsx from "clsx"
 import { GlobalContextProvider } from "./lib/globalContext"
-import Header from "./ui/header"
+import Header from "./ui/header/header"
 import Footer from "./ui/footer"
 
 interface RootLayoutProps {

@@ -1,8 +1,8 @@
-import Polygon from "./common/polygon"
+import Polygon from "../common/polygon"
 import { motion } from "framer-motion"
 import { CgMenuGridR } from "react-icons/cg"
 import { RxCross2 } from "react-icons/rx"
-import { useGlobalContext } from "../lib/globalContext"
+import { useGlobalContext } from "../../lib/globalContext"
 import { useEffect, useCallback } from "react"
 import throttle from "lodash/throttle"
 
@@ -21,17 +21,14 @@ const Hamburger: React.FC = () => {
 
     const handleToggleMenu = useCallback(throttle(() => {
         setIsMenuOpen( prevState => !prevState )
-    }, 500), [])
+    }, 500), [ setIsMenuOpen ])
 
-    useEffect(() => {
-        return () => {
-            handleToggleMenu.cancel()
-        }
-    }, [])
+    useEffect( () => () => handleToggleMenu.cancel(), [ handleToggleMenu ] )
 
     return (
         <button
             onClick={ handleToggleMenu }
+            aria-expanded={ isMenuOpen }
             aria-label={ isMenuOpen ? "Skrýt menu" : "Zobrazit menu" }
             className="w-12 h-12"
         >
