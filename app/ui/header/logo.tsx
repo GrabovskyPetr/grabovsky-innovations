@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { 
     drawOutlineLogoPrimary, 
     drawOutlineLogoSecondary,
@@ -25,11 +25,14 @@ const Logo: React.FC<LogoProps> = ({ className }) => {
 
     const toggleAnimationType = () => {
         setAnimationType( prevType => prevType === "drawOutline" ? "unfoldRotate" : "drawOutline" )
-    } 
+    }
+
+    useEffect(() => {
+        startAnimation()
+    }, [])
 
     return (
         <svg
-            onClick={ startAnimation }
             className={ className }
             viewBox="0 0 251 251"
             xmlns="http://www.w3.org/2000/svg"
