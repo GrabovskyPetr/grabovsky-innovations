@@ -9,15 +9,15 @@ interface PolygonProps {
   isAnimated: boolean
 }
 
-export default React.memo<PolygonProps>(({ 
-  id, 
-  className, 
-  deviation = 0, 
-  glowColor, 
-  children, 
-  isAnimated = false 
+const Polygon = React.memo<PolygonProps>(({
+  id,
+  className,
+  deviation = 0,
+  glowColor,
+  children,
+  isAnimated = false,
 }) => (
-  <div className={`${className} relative flex flex-col items-center justify-center`}>
+  <div className={`${ className } relative flex flex-col items-center justify-center`}>
     <svg
       className="w-full h-full absolute inset-0 overflow-visible"
       viewBox="0 0 100 88"
@@ -53,3 +53,7 @@ export default React.memo<PolygonProps>(({
     { children }
   </div>
 ))
+
+Polygon.displayName = "Polygon"
+
+export default Polygon
