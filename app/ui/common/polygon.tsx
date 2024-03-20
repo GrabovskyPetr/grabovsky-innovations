@@ -55,4 +55,5 @@ const Polygon: React.FC<PolygonProps> = React.memo(({ id, className, deviation =
     )
 })
 
+Polygon.displayName = "Polygon"
 export default Polygon
