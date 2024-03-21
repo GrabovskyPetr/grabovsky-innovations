@@ -12,7 +12,7 @@ export const drawOutlineLogoPrimaryPath: Variants = {
         stroke: "#00000000",
         transition: {
             pathLength: { delay: 1.2, type: "spring", duration: 2, bounce: 0 }, 
-            fill: { delay: 4, duration: 1 }, 
+            fill: { delay: 3, duration: 1 }, 
             stroke: { delay: 4, duration: 0.5 }
         }
     }
@@ -30,42 +30,8 @@ export const drawOutlineLogoSecondaryPath: Variants = {
         stroke: "#00000000",
         transition: { 
             pathLength: { delay: 1.2, type: "spring", duration: 2, bounce: 0 }, 
-            fill: { delay: 4, duration: 1 }, 
+            fill: { delay: 3, duration: 1 }, 
             stroke: { delay: 4, duration: 0.5 }
         }
-    }
-}
-
-export const disassembleLogoPrimaryPath: Variants = {
-    initial: {
-        pathLength: 1,
-        opacity: 1,
-    },
-    disassemble: {
-        pathLength: 0,
-        opacity: 0,
-        transition: { duration: 1 },
-    },
-    reassemble: {
-        pathLength: 1,
-        opacity: 1,
-        transition: { duration: 1, delay: 1 }
-    }
-}
-
-export const disassembleLogoSecondaryPath: Variants = {
-    initial: {
-        pathLength: 1,
-        opacity: 1,
-    },
-    disassemble: {
-        pathLength: 0,
-        opacity: 0,
-        transition: { duration: 1 },
-    },
-    reassemble: {
-        pathLength: 1,
-        opacity: 1,
-        transition: { duration: 1, delay: 1 }
     }
 }
