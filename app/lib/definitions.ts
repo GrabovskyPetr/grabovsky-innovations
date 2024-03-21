@@ -1,6 +1,6 @@
 import { IconType } from "react-icons"
 
-export interface NavItemType {
+export interface NavItem {
     name: string
     href: string
     Icon: IconType
