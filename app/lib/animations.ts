@@ -1,6 +1,6 @@
 import { Variants } from "framer-motion"
 
-export const drawOutlineLogoPrimary: Variants = {
+export const drawOutlineLogoPrimaryPath: Variants = {
     initial: {
         pathLength: 0, 
         fill: "#00000000", 
@@ -10,15 +10,15 @@ export const drawOutlineLogoPrimary: Variants = {
         pathLength: 1, 
         fill: "#F6F6F6", 
         stroke: "#00000000",
-        transition: { 
-            pathLength: { type: "spring", duration: 2, bounce: 0 }, 
-            fill: { delay: 2, duration: 1 }, 
-            stroke: { delay: 3, duration: 0.5 }
+        transition: {
+            pathLength: { delay: 1.2, type: "spring", duration: 2, bounce: 0 }, 
+            fill: { delay: 4, duration: 1 }, 
+            stroke: { delay: 4, duration: 0.5 }
         }
     }
 }
 
-export const drawOutlineLogoSecondary: Variants = {
+export const drawOutlineLogoSecondaryPath: Variants = {
     initial: {
         pathLength: 0, 
         fill: "#00000000", 
@@ -29,42 +29,43 @@ export const drawOutlineLogoSecondary: Variants = {
         fill: "#84BF61", 
         stroke: "#00000000",
         transition: { 
-            pathLength: { type: "spring", duration: 2, bounce: 0, delay: 2.5 }, 
-            fill: { delay: 4.5, duration: 1 }, 
-            stroke: { delay: 5.5, duration: 0.5 }
+            pathLength: { delay: 1.2, type: "spring", duration: 2, bounce: 0 }, 
+            fill: { delay: 4, duration: 1 }, 
+            stroke: { delay: 4, duration: 0.5 }
         }
     }
 }
 
-export const unfoldRotateLogoPrimary: Variants = {
+export const disassembleLogoPrimaryPath: Variants = {
     initial: {
-        scale: 0.5,
-        rotate: -90,
-        opacity: 0
-    },
-    animate: {
-        scale: 1,
-        rotate: 0,
+        pathLength: 1,
         opacity: 1,
-        transition: {
-            scale: { duration: 1, ease: "easeOut" },
-            rotate: { duration: 1.2, ease: "easeOut" },
-            opacity: { duration: 0.8, ease: "easeOut" }
-        }
+    },
+    disassemble: {
+        pathLength: 0,
+        opacity: 0,
+        transition: { duration: 1 },
+    },
+    reassemble: {
+        pathLength: 1,
+        opacity: 1,
+        transition: { duration: 1, delay: 1 }
     }
 }
 
-export const unfoldRotateLogoSecondary: Variants = {
+export const disassembleLogoSecondaryPath: Variants = {
     initial: {
-        y: 100,
-        opacity: 0
-    },
-    animate: {
-        y: 0,
+        pathLength: 1,
         opacity: 1,
-        transition: {
-            y: { type: "spring", stiffness: 100, duration: 1.5 },
-            opacity: { duration: 1 }
-        }
+    },
+    disassemble: {
+        pathLength: 0,
+        opacity: 0,
+        transition: { duration: 1 },
+    },
+    reassemble: {
+        pathLength: 1,
+        opacity: 1,
+        transition: { duration: 1, delay: 1 }
     }
 }
